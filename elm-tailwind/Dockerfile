@@ -12,19 +12,23 @@ ARG USERNAME=node
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 
-# Install elm, elm-test and elm-format
+# Install elm, elm-test, elm-format and elm-live.
+# Install tailwindcss in non-global.
 RUN export DEBIAN_FRONTEND=noninteractive \
     && sudo -u ${USERNAME} npm install --global \
     elm@${ELM_VERSION} \
     elm-test@${ELM_TEST_VERSION} \
     elm-format@${ELM_FORMAT_VERSION} \
     elm-live@${ELM_LIVE_VERSION} \
-    tailwindcss@latest postcss@latest autoprefixer@latest \
     #
     # [Optional] Update UID/GID if needed
     && if [ "$USER_GID" != "1000" ] || [ "$USER_UID" != "1000" ]; then \
         groupmod --gid $USER_GID $USERNAME \
         && usermod --uid $USER_UID --gid $USER_GID $USERNAME \
         && chown -R $USER_UID:$USER_GID /home/$USERNAME; \
-    fi
-
+    fi \
+    # Install tailwind without `--global` since the intellisense couldn't figure out from global directory.
+    # So install this will install directly in `/node_modules/tailwindcss` of the container, instead of polluting
+    # the developer's code directory.
+    && npm install \
+    tailwindcss@latest postcss@latest autoprefixer@latest
