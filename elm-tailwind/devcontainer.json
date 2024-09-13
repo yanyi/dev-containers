@@ -3,13 +3,16 @@
 {
 	"name": "Elm with Tailwind CSS",
 	"dockerFile": "Dockerfile",
-	"settings": { 
-		"terminal.integrated.shell.linux": "/bin/bash"
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"Elmtooling.elm-ls-vscode",
+				"bradlc.vscode-tailwindcss"
+			],
+			"settings": {
+				"terminal.integrated.shell.linux": "/bin/bash"
+			}
+		}
 	},
-	"extensions": [
-		"Elmtooling.elm-ls-vscode",
-		"bradlc.vscode-tailwindcss"
-	],
 	"remoteUser": "node"
 }
-
