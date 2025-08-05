@@ -1,0 +1,34 @@
+{
+  "name": "Go 1.24",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "args": {
+      "GOLANG_VERSION": "1.24"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "go.toolsManagement.checkForUpdates": "local",
+        "go.useLanguageServer": true,
+        "go.gopath": "/go",
+        "go.goroot": "/usr/local/go",
+        "terminal.integrated.profiles.linux": {
+          "zsh": {
+            "path": "/bin/zsh"
+          }
+        },
+        "terminal.integrated.defaultProfile.linux": "zsh"
+      },
+      "extensions": [
+        "golang.go",
+        "ms-vscode.makefile-tools",
+        "eamodio.gitlens",
+        "oderwat.indent-rainbow",
+        "ms-azuretools.vscode-docker"
+      ]
+    }
+  },
+  "remoteUser": "vscode",
+  "features": {}
+}
