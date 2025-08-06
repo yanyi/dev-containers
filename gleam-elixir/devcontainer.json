@@ -1,0 +1,28 @@
+{
+    "name": "gleam-elixir",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": "."
+    },
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.profiles.linux": {
+                    "zsh": {
+                        "path": "/bin/zsh"
+                    }
+                },
+                "terminal.integrated.defaultProfile.linux": "zsh"
+            },
+            "extensions": [
+                "Gleam.gleam",
+                "JakeBecker.elixir-ls",
+                "eamodio.gitlens",
+                "oderwat.indent-rainbow",
+                "ms-azuretools.vscode-docker"
+            ]
+        }
+    },
+    "remoteUser": "vscode",
+    "forwardPorts": []
+}
