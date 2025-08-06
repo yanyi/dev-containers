@@ -11,6 +11,7 @@ RUN apk add --no-cache \
     git \
     fzf \
     jq \
+    just \
     zsh \
     man-db \
     golangci-lint \
