@@ -1,20 +1,20 @@
 # gleam-nodejs
 
-This dev container utilizes the Gleam's pre-built Erlang image 
-`ghcr.io/gleam-lang/gleam:v1.4.1-erlang-slim` and installs Node.js in it.
+This development container includes:
+- Gleam v1.12.0
+- Erlang/OTP
+- Node.js
 
-## Why Erlang -> Node.js?
+Based on the official Gleam Docker image with Erlang support, installs Node.js
+separately.
 
-As a beginner to the language and ecosystem, I wanted to explore more. I started
-off with using the Node.js image built by Gleam but learned that in order to
-compile and run the Gleam tests or files, there is a requirement for Erlang to
-be installed.
+## Why Install Node.js Instead of `node-slim` Image?
 
-I had some issues installing Erlang using the
-`ghcr.io/gleam-lang/gleam:v1.4.1-node-slim` image, so I opted to go straight to
-the Erlang image first and installed Node.js thereafter.
+The `node-slim` image does not ship with Erlang inside. Somehow, when compiling
+with `gleam build`, the build does not work due to the lack of Erlang when
+checking `erl -version`.
 
-## Why a Need for Node.js?
+## Why Node.js?
 
 I wanted to try to run Gleam applications in Node.js, also, while learning more
 about the language and ecosystem.
