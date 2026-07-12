@@ -1,8 +1,8 @@
 FROM mcr.microsoft.com/vscode/devcontainers/javascript-node:0-12-buster
 
 # Configuring Elm version
-ARG ELM_VERSION=latest-0.19.1
-ARG ELM_TEST_VERSION=latest-0.19.1
+ARG ELM_VERSION=0.19.2-0
+ARG ELM_TEST_VERSION=0.19.2-0
 ARG ELM_FORMAT_VERSION=latest-0.19.1
 ARG ELM_LIVE_VERSION=4.0.0
 
