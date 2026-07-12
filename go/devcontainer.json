@@ -1,9 +1,9 @@
 {
-  "name": "Go 1.24",
+  "name": "Go 1.26",
   "build": {
     "dockerfile": "Dockerfile",
     "args": {
-      "GOLANG_VERSION": "1.24"
+      "GOLANG_VERSION": "1.26"
     }
   },
   "customizations": {

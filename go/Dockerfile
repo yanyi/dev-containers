@@ -1,5 +1,6 @@
 # Use the official Go image as base
-FROM golang:1.24-alpine
+ARG GOLANG_VERSION=1.26
+FROM golang:${GOLANG_VERSION}-alpine
 
 # Install essential packages and golangci-lint from Alpine packages
 # git-delta package info: https://pkgs.alpinelinux.org/packages?name=delta&branch=v3.22

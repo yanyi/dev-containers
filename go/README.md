@@ -1,14 +1,31 @@
-# Go 1.24 Dev Container
+# go
 
-This is a minimal dev container setup for Go 1.24 development with golangci-lint included.
+This development container includes:
+- Go 1.26
+- golangci-lint
+- GitHub CLI
+- Claude Code
 
-## Features
+Based on the official Go Alpine image, it installs common command-line tools and
+uses a non-root `vscode` user with zsh as the default shell.
 
-- Go 1.24 (using official Alpine image for smaller size)
-- golangci-lint installed
-- Essential VS Code extensions pre-installed
-- Non-root user setup for security
+## Build
 
-## Usage
+Build the `latest` image with:
 
-Open this folder in VS Code and run "Remote-Containers: Reopen in Container" to use this dev container.
+```sh
+make
+```
+
+Build the `verify` image with:
+
+```sh
+make verify
+```
+
+Both targets build for `linux/amd64`. See the [`Dockerfile`](Dockerfile) for
+the installed tools and the [`Makefile`](Makefile) for the available image
+targets.
+
+The explicit platform keeps the image architecture consistent and lets Docker
+use emulation when building or running it on an arm64 host.
